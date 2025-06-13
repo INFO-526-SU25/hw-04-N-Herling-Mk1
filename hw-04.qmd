@@ -1,6 +1,6 @@
 ---
 title: "HW 04"
-author: "INSERT YOUR NAME HERE"
+author: "Nathan Herling"
 format:
   html:
     embed-resources: true
