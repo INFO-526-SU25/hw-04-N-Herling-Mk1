@@ -126,9 +126,9 @@ spatial_data$cluster_type <- factor(spatial_data$cluster_type,
 tmap_mode("plot")
 
 cluster_colors <- c(
-  "#DC143C",
-  "#1ad3d1",
-  "grey95"
+  "#FDE725FF",
+  "#21908CFF",
+  "#440154FF"
 )
 names(cluster_colors) <- cluster_labels
 
