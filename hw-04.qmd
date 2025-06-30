@@ -518,9 +518,81 @@ print(g1)
 
 
 ## 2.  Arizona state of counties
+<div class="question-box">
+<p><strong>Arizona state of counties.</strong> Using the <code>tigris</code> package, download the shapefile for counties in the state of Arizona (AZ) for the year 2021. Cache the code chunk where this action is done so the shapefile isn’t downloaded each time you render.</p>
 
+<p>Then, in a separate code chunk, plot the county boundaries and label them. The word “County” should be omitted from the labels to keep them shorter. Appropriate labels should be used, including a caption that mentions the data source, and the figure should be sized such that all labels are visible. It's okay if your labels are not placed in the exact same locations as the provided figure.</p>
+
+<p><strong>Hint:</strong> When downloading the shapefile, set <code>progress_bar = FALSE</code> so that the progress bar isn’t printed in your rendered document.</p>
+
+</div>
 ```{r}
 #| label: label-me-2
+#| cache: true
+#| message: false
+#| warning: false
+#| fig.cap: "County boundaries for Arizona, 2021. Data source: US Census Bureau TIGER/Line Shapefiles."
+#| fig.width: 8
+#| fig.height: 6
+
+
+
+library(tigris)
+library(sf)
+library(ggplot2)
+library(dplyr)
+library(ggrepel)
+
+# Get tigris version for caption
+tigris_version <- as.character(packageVersion("tigris"))
+
+# Download Arizona counties shapefile for 2021 (cached)
+az_counties <- counties(state = "AZ", year = 2021, progress_bar = FALSE) %>%
+  st_as_sf()
+
+# Remove "County" from labels and get centroids for labeling
+az_counties <- az_counties %>%
+  mutate(
+    label = gsub(" County$", "", NAME),
+    lon = st_coordinates(st_centroid(geometry))[,1],
+    lat = st_coordinates(st_centroid(geometry))[,2]
+  )
+
+# Build caption text with version
+caption_text <- paste0("Source: Shapefile obtained using {tigris} R package, v", tigris_version)
+
+# Plot all counties with the same grey fill and repel labels in white boxes
+g1 <- ggplot(az_counties) +
+  geom_sf(fill = "grey90", color = "black") +  # all counties same grey fill
+  geom_label_repel(
+    aes(x = lon, y = lat, label = label),
+    size = 3.5,
+    box.padding = 0.5,
+    point.padding = 0.5,
+    force = 2.1,
+    segment.color = "black",
+    segment.size = 0.3,
+    fill = "white",
+    color = "black",
+    label.colour = "black",
+    label.size = 0.3,
+    label.r = unit(0.15, "lines")
+  ) +
+  labs(
+    title = "Counties in Arizona State",
+    x = "Longitude",
+    y = "Latitude",
+    caption = caption_text
+  ) +
+  theme_minimal() +
+  theme(
+    axis.title.y = element_text(angle = 90, vjust = 0.5),
+    plot.margin = margin(t = 5, r = 5, b = 25, l = 5),  # extra bottom margin for caption
+    plot.caption = element_text(size = 8, hjust = 1, color = "gray40")
+  )
+
+# Print the plot
+print(g1)
 
 ```
 
