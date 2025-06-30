@@ -1,0 +1,73 @@
+.question-box {
+  background-color: #e0e0e0;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #16DB65;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.note-box {
+  background-color: #e0e0e0;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #00BFFF;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+}
+
+/* Container for styled code */
+.code-container {
+  background-color: #f5f7fa;
+  padding: 1em;
+  border-radius: 8px;
+  font-family: Consolas, Monaco, 'Courier New', monospace;
+  color: #2d2d2d;
+  overflow-x: auto;
+  margin: 1em 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Make <code> display as block for multiline */
+.code-container code {
+  white-space: pre-wrap; /* or pre for exact spacing */
+  display: block;
+  line-height: 1.5;
+}
+
+
+/* smaller text */
+.text-container {
+  background-color: #f5f7fa;
+  padding: 1em;
+  border-radius: 8px;
+  font-family: Consolas, Monaco, 'Courier New', monospace;
+  font-size: 0.85em; /* Adjust this value to make text smaller or larger */
+  color: #2d2d2d;
+  margin: 1em 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* experiment to make the plot larger on the page*/
+.mywideplot img {
+  width: 70vw !important;     /* Force width to 70% of viewport */
+  max-width: none !important; /* Remove max-width restrictions */
+  height: auto !important;    /* Maintain aspect ratio */
+  display: block;
+  margin-left: -300px;     /* No left margin */
+  margin-right: auto; /* Push image to the left */
+}
+
+/* fyi */
+.fyi-note {
+  background-color: salmon;
+  padding: 1em;
+  border-radius: 5px;
+  color: #333;
+  font-size: 1rem;
+  border: 1px solid #e08e8e;
+}

@@ -4,16 +4,138 @@ author: "Nathan Herling"
 format:
   html:
     embed-resources: true
+    code-fold: true
+    code-tools: true
+    toc: true
+    css: styles.css       # ✅ Add this line to link your CSS
 toc: true
 ---
+```{r setup}
+#--------------------->
+#################
+# Package Setup #
+#################
+#Check if pacman [package manager] is installed, if not install it.
+#throw [FYI] alert either way.
+if (!requireNamespace("pacman", quietly = TRUE)) {
+  message("Installing 'pacman' (not found locally)...")
+  install.packages("pacman")
+} else {
+  message("[FYI]\n'pacman' already installed — skipping install.")
+}
+# use this line for installing/loading
+# pacman::p_load()
+# - packages to load stored in a variable (vector)
+pkgs <- c(
+  "tidyverse",
+  "glue",
+  "scales",
+  "lubridate",
+  "patchwork",
+  "ggh4x",
+  "ggrepel",
+  "openintro",
+  "ggridges",
+  "dsbox",
+  "janitor",
+  "here",
+  "knitr",
+  "ggthemes",
+  "ggplot2",
+  "kableExtra",
+  "palmerpenguins",
+  "grid",
+  "htmltools",
+  "plotly",
+  "ggforce",
+  "cowplot",
+  "magick",
+  "forcats",
+  "stringr",
+  "viridis"
+)
+# - load from the character array/vector
+pacman::p_load(char=pkgs)
 
-```{r load-packages, message = FALSE}
-library(tidyverse)
-# add any other packages you use here
+# - install tidyverse/dsbox directly from Git Hub
+# - this allows for the possible need to install on a repo. pull.
+# - and, if it's already installed just thorw an alert.
+if (!requireNamespace("dsbox", quietly = TRUE)) {
+  message("Installing 'dsbox' from GitHub (not found locally)...")
+  suppressMessages(devtools::install_github("tidyverse/dsbox"))
+} else {
+  message("[FYI]\n'dsbox' already installed — skipping GitHub install.")
+}
+
+# - alert to user packages loaded.
+# Set number of columns (adjustable)
+n_cols <- 4
+
+# Add * to each package name
+pkgs <- paste0("* ", pkgs)
+
+# Calculate number of rows based on total packages
+n_rows <- ceiling(length(pkgs) / n_cols)
+
+# Pad with empty strings to complete grid
+pkgs_padded <- c(pkgs, rep("", n_rows * n_cols - length(pkgs)))
+
+# Create matrix (fill by row)
+pkg_matrix <- matrix(pkgs_padded, nrow = n_rows, byrow = TRUE)
+
+# Print header
+cat("The packages loaded:")
+
+# Loop and print each row (use invisible to suppress NULL)
+invisible(apply(pkg_matrix, 1, function(row) {
+  cat(paste(format(row, width = 22), collapse = ""), "\n")
+}))
+#-------------------------->
+######################
+# Basic set Theme up #
+######################
+# ---- set theme for ggplot2
+ggplot2::theme_set(ggplot2::theme_minimal(base_size = 14))
+
+# set width of code output
+options(width = 65)
+
+# set figure parameters for knitr
+knitr::opts_chunk$set(
+  fig.width = 7,        # 7" width
+  fig.asp = 0.618,      # the golden ratio
+  fig.retina = 3,       # dpi multiplier for displaying HTML output on retina
+  fig.align = "center", # center align figures
+  dpi = 300             # higher dpi, sharper image
+)
+## ---- end theme set up
 ```
 
 
 ## 1 - A second chance
+<div class="question-box">
+  <h2>A Second Chance</h2>
+  <p>
+    Take one of the visualizations from your first project, ideally one you received more feedback on or lost more points on, and improve it. 
+  </p>
+  <p>
+    First, write one sentence reminding us of your project and a few sentences on why you chose this plot and how you plan to improve it. Some of these improvements might be "fixes" for things that were pointed out as missing or incorrect. Some of them might be things you hoped to do before the project deadline but didn't get a chance to. And some might be things you wanted to do in your project but your teammates didn't agree with, so you gave up on them at the time.
+  </p>
+  <h3>Notes for Completing This Assignment:</h3>
+  <ul>
+    <li>You will need to add your data from your project to the <code>data/</code> folder in this assignment. You do not need to also add the data dictionary.</li>
+    <li>You will need to copy over any code needed for cleaning/preparing your data for this plot. You can reuse code from your project but note that we will re-evaluate your code as part of the grading for this exercise. This means we might catch something wrong with it that we didn't catch before, so if you spot any errors, make sure to fix them.</li>
+    <li>Don't worry about being critical of your own work. Even if you lost no points on the plot, if you think it can be improved, articulate how and why. We will not go back and penalize for any mistakes you might point out that we didn't catch at the time of grading your project. There's no risk to being critical!</li>
+  </ul>
+</div>
+
+<div class="note-box">
+  You're performing a spatial cluster analysis to identify areas in the U.S. where access to plumbing has significantly improved or worsened between 2022 and 2023. First, you load and clean water insecurity data for both years and ensure the datasets align by matching common geographic identifiers (GEOIDs). Then, you join these data to U.S. county shapefiles and calculate the year-over-year change in the percentage of people lacking plumbing. Using spatial statistics (Local G* or Getis-Ord Gi*), you detect statistically significant clusters — labeling them as hotspots (worsening access) or coldspots (improving access) — and visualize them on a map.
+</div>
+
+
+
+
 
 ```{r}
 #| label: label-me-1
