@@ -130,7 +130,8 @@ knitr::opts_chunk$set(
 </div>
 
 <div class="note-box">
-  You're performing a spatial cluster analysis to identify areas in the U.S. where access to plumbing has significantly improved or worsened between 2022 and 2023. First, you load and clean water insecurity data for both years and ensure the datasets align by matching common geographic identifiers (GEOIDs). Then, you join these data to U.S. county shapefiles and calculate the year-over-year change in the percentage of people lacking plumbing. Using spatial statistics (Local G* or Getis-Ord Gi*), you detect statistically significant clusters — labeling them as hotspots (worsening access) or coldspots (improving access) — and visualize them on a map.
+  <b>Reminder:</b>From final project/question 2 - performing a spatial cluster analysis to identify areas in the U.S. where access to plumbing has significantly improved or worsened between 2022 and 2023. First, I loaded and cleaned water insecurity data for both years and ensure the datasets align by matching common geographic identifiers (GEOIDs). Then, I join these data to U.S. county shapefiles and calculate the year-over-year change in the percentage of people lacking plumbing. Using spatial statistics (Local G* or Getis-Ord Gi*), I detected statistically significant clusters — labeling them as hotspots (worsening access) or coldspots (improving access) — and visualized them on a map.
+  <br>
 </div>
 
 

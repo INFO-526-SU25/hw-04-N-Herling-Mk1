@@ -3285,7 +3285,7 @@ Don’t worry about being critical of your own work. Even if you lost no points 
 </ul>
 </div>
 <div class="note-box">
-<p>You’re performing a spatial cluster analysis to identify areas in the U.S. where access to plumbing has significantly improved or worsened between 2022 and 2023. First, you load and clean water insecurity data for both years and ensure the datasets align by matching common geographic identifiers (GEOIDs). Then, you join these data to U.S. county shapefiles and calculate the year-over-year change in the percentage of people lacking plumbing. Using spatial statistics (Local G* or Getis-Ord Gi*), you detect statistically significant clusters — labeling them as hotspots (worsening access) or coldspots (improving access) — and visualize them on a map.</p>
+<p><b>Reminder:</b>From final project/question 2 - performing a spatial cluster analysis to identify areas in the U.S. where access to plumbing has significantly improved or worsened between 2022 and 2023. First, I loaded and cleaned water insecurity data for both years and ensure the datasets align by matching common geographic identifiers (GEOIDs). Then, I join these data to U.S. county shapefiles and calculate the year-over-year change in the percentage of people lacking plumbing. Using spatial statistics (Local G* or Getis-Ord Gi*), I detected statistically significant clusters — labeling them as hotspots (worsening access) or coldspots (improving access) — and visualized them on a map. <br></p>
 </div>
 </section>
 <section id="arizona-state-of-counties" class="level2">
@@ -3905,36 +3905,37 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-130"><a href="#cb10-130" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
 <span id="cb10-131"><a href="#cb10-131" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-132"><a href="#cb10-132" aria-hidden="true" tabindex="-1"></a>&lt;div class=&quot;note-box&quot;&gt;</span>
-<span id="cb10-133"><a href="#cb10-133" aria-hidden="true" tabindex="-1"></a>  You&#39;re performing a spatial cluster analysis to identify areas in the U.S. where access to plumbing has significantly improved or worsened between 2022 and 2023. First, you load and clean water insecurity data for both years and ensure the datasets align by matching common geographic identifiers (GEOIDs). Then, you join these data to U.S. county shapefiles and calculate the year-over-year change in the percentage of people lacking plumbing. Using spatial statistics (Local G* or Getis-Ord Gi*), you detect statistically significant clusters — labeling them as hotspots (worsening access) or coldspots (improving access) — and visualize them on a map.</span>
-<span id="cb10-134"><a href="#cb10-134" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
-<span id="cb10-135"><a href="#cb10-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-133"><a href="#cb10-133" aria-hidden="true" tabindex="-1"></a>  &lt;b&gt;Reminder:&lt;/b&gt;From final project/question 2 - performing a spatial cluster analysis to identify areas in the U.S. where access to plumbing has significantly improved or worsened between 2022 and 2023. First, I loaded and cleaned water insecurity data for both years and ensure the datasets align by matching common geographic identifiers (GEOIDs). Then, I join these data to U.S. county shapefiles and calculate the year-over-year change in the percentage of people lacking plumbing. Using spatial statistics (Local G* or Getis-Ord Gi*), I detected statistically significant clusters — labeling them as hotspots (worsening access) or coldspots (improving access) — and visualized them on a map.</span>
+<span id="cb10-134"><a href="#cb10-134" aria-hidden="true" tabindex="-1"></a>  &lt;br&gt;</span>
+<span id="cb10-135"><a href="#cb10-135" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
 <span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: label-me-1</span></span>
-<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: label-me-1</span></span>
+<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb10-147"><a href="#cb10-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2.  Arizona state of counties</span></span>
-<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-152"><a href="#cb10-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: label-me-2</span></span>
-<span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-157"><a href="#cb10-157" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.  Arizona state of population change</span></span>
-<span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-161"><a href="#cb10-161" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-162"><a href="#cb10-162" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: label-me-3</span></span>
-<span id="cb10-163"><a href="#cb10-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-164"><a href="#cb10-164" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-165"><a href="#cb10-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-166"><a href="#cb10-166" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4.  Arizona state of Indiginous Tribal Regions</span></span>
-<span id="cb10-167"><a href="#cb10-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-168"><a href="#cb10-168" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5. Arizona state of patchwork</span></span>
+<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2.  Arizona state of counties</span></span>
+<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: label-me-2</span></span>
+<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-157"><a href="#cb10-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.  Arizona state of population change</span></span>
+<span id="cb10-159"><a href="#cb10-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-162"><a href="#cb10-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-163"><a href="#cb10-163" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: label-me-3</span></span>
+<span id="cb10-164"><a href="#cb10-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-165"><a href="#cb10-165" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-166"><a href="#cb10-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-167"><a href="#cb10-167" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4.  Arizona state of Indiginous Tribal Regions</span></span>
+<span id="cb10-168"><a href="#cb10-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-169"><a href="#cb10-169" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5. Arizona state of patchwork</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
